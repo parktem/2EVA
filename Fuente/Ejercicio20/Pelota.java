@@ -21,8 +21,8 @@ public class Pelota extends Rectangulo {
 
 	public Pelota() {
 		super(100, 150, 15, 15, Color.white);
-		velX = 5;
-		velY = 5;
+		velX = 3;
+		velY = 3;
 	}
 
 	public void dibujar(Graphics gg) {
