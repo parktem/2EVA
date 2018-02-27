@@ -33,16 +33,19 @@ public class Snake extends Rectangle {
 		d4 = false;
 
 		if (direccion == DERECHA) {
-			for (int i = 0; i < 10; i++) {
-				x += velX + width;
-			}
-			d1 = true;
+			x += velX + width;
 		} else if (direccion == IZQUIERDA) {
 			x -= velX + width;
 		} else if (direccion == ARRIBA) {
 			y += velY + width;
 		} else if (direccion == ABAJO) {
 			y -= velY + width;
+		}
+
+		switch (1) {
+		case 1:
+			direccion = DERECHA;
+			x += velX + width;
 		}
 
 	}
