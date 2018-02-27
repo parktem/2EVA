@@ -22,8 +22,9 @@ public class Pajarito extends Rectangle {
 	public void dibujar(Graphics g) {
 		if (PajaritoApp.tocado == false) {
 			g.setColor(color);
-			// g.fillOval(x, y, width, height);
-			g.drawImage(PajaritoApp.imagen, x, y, (int) (getWidth() - 250), (int) (getHeight() - 250), pajaritoapp);
+			g.fillOval(x, y, width, height);
+			// g.drawImage(PajaritoApp.imagen, x, y, (int) (getWidth() - 250), (int)
+			// (getHeight() - 250), pajaritoapp);
 
 		} else {
 			g.setColor(Color.red);

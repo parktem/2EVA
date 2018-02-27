@@ -1,3 +1,4 @@
+
 package Ejercicio22;
 
 import java.applet.Applet;
@@ -11,12 +12,15 @@ public class PajaritoApp extends Applet implements Runnable {
 	List<Columna> columnas;
 	Pajarito pajarito;
 	Thread animacion;
+	final int SLEEP = 50;
+	int cont;
+	public static boolean tocado = false;
 
 	public void init() {
 		setSize(300, 300);
 		columnas = new ArrayList<Columna>();
-		for (int i = 0; i < 10; i++) {
-			columnas.add(new Columna(Color.RED, i * 100));
+		for (int i = 0; i < 5; i++) {
+			columnas.add(new Columna(i * 100));
 		}
 		pajarito = new Pajarito(Color.blue);
 	}
@@ -41,7 +45,17 @@ public class PajaritoApp extends Applet implements Runnable {
 			}
 			repaint();
 			try {
-				Thread.sleep(50);
+				Thread.sleep(SLEEP);
+				cont += 50;
+				if (cont % 7000 == 0) {
+					columnas.remove(0);
+					columnas.add(new Columna(100 * 3));
+				}
+				for (int i = 0; i < columnas.size(); i++) {
+					if ((pajarito.intersects(columnas.get(i).r1)) || (pajarito.intersects(columnas.get(i).r2))) {
+						tocado = true;
+					}
+				}
 			} catch (InterruptedException e) {
 
 			}

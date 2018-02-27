@@ -18,15 +18,26 @@ public class Pajarito extends Rectangle {
 	}
 
 	public void dibujar(Graphics g) {
-		g.setColor(color);
-		g.fillOval(x, y, width, height);
+		if (PajaritoApp.tocado == false) {
+			g.setColor(color);
+			g.fillOval(x, y, width, height);
+		} else {
+			g.fillOval(x, y, width, height);
+			g.setColor(Color.red);
+			g.drawString("Game Over", 150, 150);
+		}
 	}
 
 	public void actualizar(int direccion) {
-		if (direccion == SALTAR) {
-			y -= velY + 15;
+		if (PajaritoApp.tocado == false) {
+			if (direccion == SALTAR) {
+				y -= velY + 20;
+			}
+			y += velY + 1;
+
+		} else {
+			y += velY + 10;
 		}
-		y += velY;
 	}
 
 }
